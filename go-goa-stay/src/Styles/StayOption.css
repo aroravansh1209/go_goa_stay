@@ -1,0 +1,65 @@
+.Stayoptions {
+  margin-bottom: 3rem;
+}
+
+.Stayoptions .title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.Stayoptions .cards-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .Stayoptions .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Stayoptions .cards-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.Stayoptions .card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.Stayoptions .card-header {
+  padding: 1rem;
+  background-color: #f8f8f8;
+}
+
+.Stayoptions .card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.Stayoptions .card-content {
+  padding: 1rem;
+}
+
+.Stayoptions .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Stayoptions .card.animate {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.Stayoptions .card:not(.animate) {
+  opacity: 0;
+  transform: translateY(100px);
+}

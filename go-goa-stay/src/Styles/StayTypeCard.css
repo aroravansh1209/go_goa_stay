@@ -1,0 +1,92 @@
+/* StayTypeCards.css */
+
+.stay-types {
+  margin-bottom: 3rem;
+}
+
+.stay-types-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.options-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.options-list li {
+  font-size: 1rem;
+  color: #555;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: #f4f4f4;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.tag:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+/* Animation when the card enters the viewport */
+.card.animate {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Add customizations or breakpoints if needed */
+@media (max-width: 768px) {
+  .stay-types-title {
+    font-size: 1.25rem;
+  }
+}

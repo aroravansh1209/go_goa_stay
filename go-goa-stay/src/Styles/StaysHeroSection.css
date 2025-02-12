@@ -1,0 +1,92 @@
+/* HeroSection.css */
+.hero-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    overflow: hidden;
+    text-align: center; /* Ensures the text within is centered */
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    padding: 0 1rem;
+    max-width: 80%; /* Prevents text from stretching too wide on large screens */
+    text-align: center; /* Ensure text inside is centered */
+    display: flex;
+    flex-direction: column; /* Align the content vertically */
+    align-items: center; /* Horizontally center the content inside */
+    justify-content: center; /* Vertically center the content inside */
+  }
+  
+  .hero-title {
+    font-size: 2rem; /* Default size for smaller screens */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-description {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .cta-button {
+    background-color: white;
+    color: black;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounce 1s infinite;
+  }
+  
+  .cta-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+  }
+  
+  /* Animation for Fade In Effects */
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animation for Button Bounce */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
