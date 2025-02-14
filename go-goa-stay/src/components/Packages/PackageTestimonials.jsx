@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import "./Testimonials.css"; // Import the CSS file
+import "../../Styles/PackagesTestimonials.css"; // Import the CSS file
 
 const testimonials = [
   {
@@ -20,14 +19,14 @@ const testimonials = [
   },
 ];
 
-export function Testimonials() {
+export function PackagesTestimonials() {
   return (
     <section className="PackageTestimonials-section">
       <h2 className="PackageTestimonials-title">What Our Travelers Say</h2>
       <div className="PackageTestimonials-grid">
         {testimonials.map((testimonial) => (
-          <Card key={testimonial.name} className="PackageTestimonials-card">
-            <CardContent className="PackageTestimonials-card-content">
+          <div key={testimonial.name} className="PackageTestimonials-card">
+            <div className="PackageTestimonials-card-content">
               <div className="PackageTestimonials-image-container">
                 <img
                   src={testimonial.image || "/placeholder.svg"}
@@ -37,8 +36,8 @@ export function Testimonials() {
               </div>
               <p className="PackageTestimonials-text">"{testimonial.text}"</p>
               <p className="PackageTestimonials-name">{testimonial.name}</p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
     </section>

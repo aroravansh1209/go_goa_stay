@@ -1,9 +1,7 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Star } from "lucide-react";
+import { Star } from "lucide-react"; // For star icon
 import { Link } from "react-router-dom"; // Assuming you are using React Router instead of Next.js Link
-import "./PackageCard.css"; // Import the CSS file
+import "../../Styles/PackagesCard.css"; // Import the CSS file
 
 export function PackageCard({
   id,
@@ -22,7 +20,7 @@ export function PackageCard({
           alt={name}
           className="PackageCard-image"
         />
-        <Badge className="PackageCard-badge">{duration}</Badge>
+        <span className="PackageCard-badge">{duration}</span>
       </div>
       <div className="PackageCard-content">
         <h3 className="PackageCard-title">{name}</h3>
@@ -45,7 +43,7 @@ export function PackageCard({
         <div className="PackageCard-price-container">
           <span className="PackageCard-price">₹{price.toLocaleString()}</span>
           <Link to={`/package/${id}`} className="PackageCard-link">
-            <Button className="PackageCard-button">View Details</Button>
+            <button className="PackageCard-button">View Details</button>
           </Link>
         </div>
       </div>

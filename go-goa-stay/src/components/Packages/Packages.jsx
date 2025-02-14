@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { getDestinations } from "@/lib/get-destinations";
-import DestinationCard from "@/components/destination-card";
-import HeroSection from "@/components/hero-section";
-import PopularActivities from "@/components/popular-activities";
-import NewsletterSignup from "@/components/newsletter-signup";
-import Footer from "@/components/footer";
-import Testimonials from "@/components/testimonials";
-import './HomePage.css'; // Import the normal CSS file
+import { getDestinations } from "../Packages/getDestination";
+import Footer from "../../components/Footer";
+import '../../Styles/Packages.css'; // Import the normal CSS file
+import { PackagesHeroSection } from "./PackageHeroSection";
+import { PackagesDestinationCard } from "./PackageDestinationPage";
+import { PackagesTestimonials } from "./PackageTestimonials";
+import { PackagesNewsletterSignup } from "./PackageNewslwtter";
+import Navbar from "../Navbar";
 
-export default function HomePage() {
+export default function Packages() {
   const [destinations, setDestinations] = useState([]);
 
   useEffect(() => {
@@ -22,18 +22,19 @@ export default function HomePage() {
 
   return (
     <main className="packages-home-page">
-      <HeroSection />
+      <Navbar/>
+      <br/>
+      <PackagesHeroSection />
       <div className="packages-destinations-section">
         <h2 className="packages-section-title">Explore Goa Destinations</h2>
         <div className="packages-destination-grid">
           {destinations.map((destination) => (
-            <DestinationCard key={destination.id} {...destination} />
+            <PackagesDestinationCard key={destination.id} {...destination} />
           ))}
         </div>
       </div>
-      <PopularActivities />
-      <Testimonials />
-      <NewsletterSignup />
+      <PackagesTestimonials />
+      <PackagesNewsletterSignup />
       <Footer />
     </main>
   );

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import "./NewsletterSignup.css"; // Import the CSS file
+import "../../Styles/PackageNewslwtter.css"; // Import the CSS file
 
-export function NewsletterSignup() {
+export function PackagesNewsletterSignup() {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
@@ -21,7 +19,7 @@ export function NewsletterSignup() {
           Subscribe to our newsletter and get exclusive deals on your dream Goa vacation.
         </p>
         <form onSubmit={handleSubmit} className="packageNewsletter-form">
-          <Input
+          <input
             type="email"
             placeholder="Enter your email"
             value={email}
@@ -29,9 +27,9 @@ export function NewsletterSignup() {
             required
             className="packageNewsletter-input"
           />
-          <Button type="submit" className="packageNewsletter-button">
+          <button type="submit" className="packageNewsletter-button">
             Subscribe
-          </Button>
+          </button>
         </form>
       </div>
     </section>

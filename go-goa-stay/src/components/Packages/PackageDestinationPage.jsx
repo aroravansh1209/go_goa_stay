@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { MapPin, Star } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import "./DestinationCard.css"; // Import the CSS file
+import "../../Styles/PackageDestinationPage.css"; // Import the CSS file
 
-export function DestinationCard({
+export function PackagesDestinationCard({
   id,
   name,
   description,
@@ -17,7 +14,7 @@ export function DestinationCard({
   tourOptions,
 }) {
   return (
-    <Card className="packagedestination-card">
+    <div className="packagedestination-card">
       <div className="packagedestination-image-container">
         <img
           src={image || "/placeholder.svg"}
@@ -25,7 +22,7 @@ export function DestinationCard({
           className="packagedestination-image"
         />
       </div>
-      <CardContent className="packagedestination-card-content">
+      <div className="packagedestination-card-content">
         <div className="packagedestination-location">
           <MapPin className="packagedestination-icon" />
           <h3 className="packagedestination-title">{name}</h3>
@@ -33,9 +30,9 @@ export function DestinationCard({
         <p className="packagedestination-description">{description}</p>
         <div className="packagedestination-badges">
           {tourOptions.map((option) => (
-            <Badge key={option} variant="secondary" className="packagedestination-badge">
+            <span key={option} className="packagedestination-badge">
               {option}
-            </Badge>
+            </span>
           ))}
         </div>
         <div className="packagedestination-rating">
@@ -55,14 +52,14 @@ export function DestinationCard({
           </span>
         </div>
         <a href={`/destination/${id}`} className="packagedestination-view-details">
-          <Button className="packagedestination-view-details-button">View Details</Button>
+          <button className="packagedestination-view-details-button">View Details</button>
         </a>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }
 
-DestinationCard.propTypes = {
+PackagesDestinationCard.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

@@ -33,13 +33,13 @@ export default function Navbar() {
             <a href="/rentals">Vehicle Rentals</a>
           </li>
           <li>
-            <a href="#testimonials">Packages</a>
+            <a href="/packages">Packages</a>
           </li>
           <li>
             <a href="#testimonials">Activities</a>
           </li>
           <li>
-            <a href="#testimonials"> Cruise</a>
+            <a href="/cruise"> Cruise</a>
           </li>
         </ul>
         <button>Connect</button>

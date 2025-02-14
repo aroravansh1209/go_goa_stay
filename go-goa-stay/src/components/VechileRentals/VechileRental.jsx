@@ -32,6 +32,7 @@ export default function VechileRental() {
       <div className="car-rental-app">
 
         <Navbar />
+        <br />
   
         {/* Main Content */}
         <main>

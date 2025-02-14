@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { goaPackages } from "@/data/goa-packages"; // Adjust path if necessary
+import React,{ useState, useEffect } from "react";
+import { goaPackages } from "../Packages/goaPackages"; // Adjust path if necessary
 import { Star, Check } from "lucide-react";
 import "../../Styles/PackagePage.css"
 

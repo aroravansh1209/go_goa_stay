@@ -1,8 +1,7 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import "./HeroSection.css"; // Import the CSS file
+import "../../Styles/PackageHeroSection.css"; // Import the CSS file
 
-export function HeroSection() {
+export function PackagesHeroSection() {
   return (
     <div className="packageHero-container">
       <img
@@ -17,9 +16,9 @@ export function HeroSection() {
           Sun-kissed beaches, vibrant culture, and unforgettable adventures
           await
         </p>
-        <Button className="packageHero-button" size="lg">
+        <button className="packageHero-button">
           Explore Packages
-        </Button>
+        </button>
       </div>
     </div>
   );

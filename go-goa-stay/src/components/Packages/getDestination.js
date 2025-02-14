@@ -1,26 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { getDestinations } from './getDestinations'; // path to the function
+import destinationsData from "../../components/Packages/destinations.json";
 
-export function DestinationsList() {
-  const [destinations, setDestinations] = useState([]);
-
-  useEffect(() => {
-    const fetchDestinations = async () => {
-      const data = await getDestinations();
-      setDestinations(data);
-    };
-
-    fetchDestinations();
-  }, []);
-
-  return (
-    <div>
-      <h2>Our Destinations</h2>
-      <ul>
-        {destinations.map((destination, index) => (
-          <li key={index}>{destination.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
+export async function getDestinations() {
+  // In a real application, this would likely be an API call
+  // For now, we're just returning the data from our JSON file
+  return destinationsData.destinations;
 }
