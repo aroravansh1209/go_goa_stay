@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Calendar } from "./Calendar"; // Assuming you have the Calendar component elsewhere
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./Card"; // Assuming you have Card components
 import { Input, InputLabel, Button, FormControl, FormHelperText } from "@mui/material"; // MUI components
-import { cruises } from "./data"; // Assuming you have a 'data' file
-import './BookingPage.css'; // Import custom styles
+import { cruises } from "../Cruise/CruiseData"; // Assuming you have a 'data' file
+import '../../Styles/CruiseBooking.css'; // Import custom styles
 
 function BookingPage({ match }) {
   const cruiseId = match.params.id;
@@ -85,4 +85,4 @@ function BookingPage({ match }) {
   );
 }
 
-export default BookingPage;
+export default CruiseBookingPage;

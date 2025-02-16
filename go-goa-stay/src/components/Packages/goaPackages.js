@@ -1,4 +1,4 @@
-import { GoaPackage } from "./GoaPackage";
+import { GoaPackage } from "../../components/Packages/GoaPackage";
 
 export const goaPackages = [
   {

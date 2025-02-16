@@ -1,13 +1,14 @@
 import React from 'react';
 import { Search } from "lucide-react";
 import "../../Styles/CruiseHeroSection.css"; // Import the custom CSS
+import cuiseGoa1 from "../../assets/cuiseGoa1.jpg"
 
 export function CruiseHeroSection() {
   return (
     <div className="cruiseHero-container">
       <div className="cruiseHero-image-container">
         <img
-          src="/placeholder.svg"
+          src={cuiseGoa1}
           alt="Cruise ship at sunset"
           className="cruiseHero-image"
         />

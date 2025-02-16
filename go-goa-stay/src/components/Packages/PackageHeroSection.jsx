@@ -1,11 +1,12 @@
 import React from "react";
 import "../../Styles/PackageHeroSection.css"; // Import the CSS file
+import goapackage from "../../assets/goapackage.jpg"
 
 export function PackagesHeroSection() {
   return (
     <div className="packageHero-container">
       <img
-        src="/goa-hero.jpg"
+        src={goapackage}
         alt="Beautiful beach in Goa"
         className="packageHero-image"
       />

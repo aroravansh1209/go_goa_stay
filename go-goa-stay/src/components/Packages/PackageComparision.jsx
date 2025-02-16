@@ -1,6 +1,6 @@
 import React from "react";
 import { Check, X } from "lucide-react";
-import { goaPackages } from "@/data/goa-packages";
+import { goaPackages } from "../../components/Packages/goaPackages";
 import "../../Styles/PackageComparison.css"; // Import the CSS file
 
 export function PackageComparison() {

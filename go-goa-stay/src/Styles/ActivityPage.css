@@ -1,0 +1,161 @@
+.activityPage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .activityPage-grid {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .activityPage-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .activityPage-header {
+    margin-bottom: 24px;
+  }
+  
+  .activityPage-title {
+    font-size: 2.25rem;
+    font-weight: bold;
+  }
+  
+  .activityPage-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.875rem;
+  }
+  
+  .activityPage-meta div {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .activityPage-star-icon,
+  .activityPage-clock-icon,
+  .activityPage-map-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .activityPage-tabs {
+    margin-top: 32px;
+  }
+  
+  .activityPage-tabs-list {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .activityPage-tab-trigger {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .activityPage-tab-content {
+    margin-top: 16px;
+  }
+  
+  .activityPage-restrictions-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .activityPage-restrictions-list {
+    list-style: disc inside;
+  }
+  
+  .activityPage-includes-list,
+  .activityPage-safety-list {
+    display: grid;
+    gap: 12px;
+  }
+  
+  .activityPage-includes-item,
+  .activityPage-safety-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .activityPage-shield-icon {
+    width: 16px;
+    height: 16px;
+    color: #38a169;
+  }
+  
+  .activityPage-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .activityPage-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .activityPage-card-content {
+    padding: 24px;
+  }
+  
+  .activityPage-price {
+    margin-bottom: 24px;
+  }
+  
+  .activityPage-price-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .activityPage-price-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .activityPage-badge {
+    background-color: #e53e3e;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 12px;
+  }
+  
+  .activityPage-price-original {
+    font-size: 1rem;
+    color: gray;
+  }
+  
+  .activityPage-price-strike {
+    text-decoration: line-through;
+  }
+  
+  .activityPage-booking-link {
+    text-decoration: none;
+  }
+  
+  .activityPage-booking-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #38a169;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .activityPage-booking-button:hover {
+    background-color: #2f855a;
+  }
+  

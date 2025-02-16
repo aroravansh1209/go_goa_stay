@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Clock, MapPin, Utensils, Users, Waves, Wifi } from "lucide-react";
-import { cruises } from "@/lib/data"; // Assuming your data file
+import { cruises } from "../Cruise/CruiseData"; // Assuming your data file
 
-import "./CruiseDetailsPage.css"; // Import custom CSS file
+import "../../Styles/CruiseDeatils.css"; // Import custom CSS file
 
 export default function CruiseDetailsPage({ match }) {
   const cruiseId = match.params.id;
