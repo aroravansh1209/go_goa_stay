@@ -1,190 +1,199 @@
-Global Styles
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* rental.css */
+
+.rental-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.rental-hero {
+  position: relative;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 64px;
+}
+
+.rental-hero-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.rental-hero-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: brightness(50%);
+}
+
+.rental-hero-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px;
+  color: white;
+}
+
+.rental-hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.rental-hero-description {
+  font-size: 1.25rem;
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.rental-hero-button {
+  font-size: 1rem;
+  padding: 12px 24px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.rental-vehicle-types {
+  margin-bottom: 64px;
+}
+
+.rental-section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.rental-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+}
+
+@media(min-width: 768px) {
+  .rental-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  .car-rental-app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+}
+
+.featured-vehicles-grid {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media(min-width: 768px) {
+  .featured-vehicles-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Header Styles */
-  header {
-    background-color: white;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    z-index: 10;
-  }
-  
-  .logo img {
-    height: 2.5rem;
-    width: auto;
-  }
-  
-  nav {
-    display: none;
-  }
-  
-  @media (min-width: 768px) {
-    nav {
-      display: flex;
-      align-items: center;
-    }
-  
-    nav a {
-      color: #1e1e4b;
-      text-decoration: none;
-      margin-left: 2rem;
-    }
-  
-    nav a:hover {
-      color: #4a4a8f;
-    }
-  }
-  
-  .header-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-actions a {
-    color: #1e1e4b;
-    text-decoration: none;
-    margin-right: 1rem;
-  }
-  
-  .login-button {
-    background-color: #2a2356;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-  }
-  
-  .login-button:hover {
-    background-color: #4a4a8f;
-  }
-  
-  /* Main Content Styles */
-  main {
-    flex: 1;
-    position: relative;
-  }
-  
-  .content-overlay {
-    position: relative;
-    z-index: 10;
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 3rem 1rem;
-  }
-  
-  /* Booking Form Styles */
-  .booking-form {
-    background-color: white;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 3rem;
-  }
-  
-  .form-tabs {
-    display: flex;
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-tabs button {
-    padding: 0.75rem 1.5rem;
-    font-weight: 500;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .form-tabs button.active {
-    background-color: #2a2356;
-    color: white;
-  }
-  
-  .form-fields {
-    display: grid;
-    gap: 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .form-fields {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  .duration {
-    margin-top: 1rem;
-    font-size: 0.875rem;
-    color: #4b5563;
-  }
-  
-  .form-actions {
-    margin-top: 1.5rem;
-  }
-  
-  .search-button {
-    background-color: #2a2356;
-    color: white;
-    padding: 0.5rem 2rem;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-  }
-  
-  .search-button:hover {
-    background-color: #4a4a8f;
-  }
-  
-  .search-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  /* Hero Content Styles */
-  .hero-content {
-    max-width: 48rem;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.25rem;
-    font-weight: bold;
-    color: white;
-    line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  @media (min-width: 768px) {
-    .hero-content h1 {
-      font-size: 3rem;
-    }
-  }
-  
-  .enquire-button {
-    margin-top: 2rem;
-    background-color: #2a2356;
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-  }
-  
-  .enquire-button:hover {
-    background-color: #4a4a8f;
-  }
-  
-  
+}
+
+.rental-featured-vehicles {
+  margin-bottom: 64px;
+}
+
+.rental-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rental-card-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.rental-card-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.rental-card-header {
+  padding: 16px;
+}
+
+.rental-card-content {
+  padding: 16px;
+}
+
+.rental-card-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.rental-card-link:hover {
+  text-decoration: underline;
+}
+
+.rental-cta {
+  background-color: #0070f3;
+  color: white;
+  padding: 32px;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.rental-cta-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.rental-cta-description {
+  margin-bottom: 24px;
+}
+
+.rental-cta-button {
+  width: 100%;
+  padding: 16px;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.rental-testimonial-rating {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.rental-star {
+  color: gold;
+  font-size: 1.5rem;
+  margin-right: 4px;
+}
+
+.rental-card-quote {
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.rental-card-author {
+  font-weight: bold;
+}
+
+.rental-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rental-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}

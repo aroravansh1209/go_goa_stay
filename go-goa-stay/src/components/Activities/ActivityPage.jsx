@@ -1,10 +1,10 @@
 import React from 'react';
 import { Clock, MapPin, Star, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom'; // For regular React Router
-import { ImageGallery } from './image-gallery'; // Adjust the import according to your project structure
-import { ReviewsSection } from './reviews-section'; // Adjust the import
-import { RelatedActivities } from './related-activities'; // Adjust the import
 import '../../Styles/ActivityPage.css'; // Updated path for regular CSS
+import { ActivityImageSection } from './ActivityImageSection';
+import { ActivityReview } from './ActivityReview';
+import { ActivityRelatedActivities } from './ActivityRelatedActivities';
 
 export default function ActivityPage({ params }) {
   const activity = {
@@ -113,7 +113,7 @@ export default function ActivityPage({ params }) {
             </div>
           </div>
 
-          <ImageGallery images={activity.images} title={activity.title} />
+          <ActivityImageSection images={activity.images} title={activity.title} />
 
           <div className="activityPage-tabs">
             <div className="activityPage-tabs-list">
@@ -154,9 +154,9 @@ export default function ActivityPage({ params }) {
             </div>
           </div>
 
-          <ReviewsSection reviews={reviews} />
+          <ActivityReview reviews={reviews} />
 
-          <RelatedActivities activities={relatedActivities} />
+          <ActivityRelatedActivities activities={relatedActivities} />
         </div>
 
         <div className="activityPage-sidebar">

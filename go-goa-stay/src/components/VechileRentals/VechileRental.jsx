@@ -1,101 +1,169 @@
-import React, { useState, useMemo } from "react";
-import { differenceInDays, differenceInHours, isAfter, parseISO } from "date-fns";
-import { DateTimePicker } from "./DateTimePicker"; // Adjust the path as per your directory
-import { VechileLocationSelector } from "./LocationSelector"; // Adjust the path as per your directory
-import VechileImageSlider from "./VechileImageSlider";  // Use default import
-import "../../Styles/VechileRentals.css"; // Importing the CSS file
+import { useRef } from "react"
+import "../../Styles/VechileRentals.css"
 import Navbar from "../Navbar";
-import VechileShowCase from "./VechileShowCase";
-import { Feather } from "lucide-react";
-import Features from "./Features";
-import Footer from "../Footer";
+import rental from "../../assets/rental.jpeg";
 
-export default function VechileRental() {
-    const [location, setLocation] = useState("")
-    const [pickupDate, setPickupDate] = useState("")
-    const [returnDate, setReturnDate] = useState("")
-  
-    const duration = React.useMemo(() => {
-      if (pickupDate && returnDate) {
-        const start = parseISO(pickupDate)
-        const end = parseISO(returnDate)
-        if (isAfter(end, start)) {
-          const days = differenceInDays(end, start)
-          const remainingHours = differenceInHours(end, start) % 24
-          return { days, hours: remainingHours }
-        }
-      }
-      return null
-    }, [pickupDate, returnDate])
-  
-    return (
-      <div className="car-rental-app">
+export default function VehicleRental() {
+  const vehicleTypesRef = useRef(null)
 
-        <Navbar />
-        <br />
-  
-        {/* Main Content */}
-        <main>
-          {/* Background Image Slider */}
-          <VechileImageSlider />
-  
-          {/* Content Overlay */}
-          <div className="content-overlay">
-            {/* Booking Form */}
-            <div className="booking-form">
-              <div className="form-tabs">
-                <button className="active">Daily Rentals</button>
-                <button>Monthly Subscription</button>
-              </div>
-  
-              <div className="form-fields">
-                <VechileLocationSelector value={location} onChange={setLocation} />
-                <DateTimePicker label="Pick-Up Date" value={pickupDate} onChange={setPickupDate} />
-                <DateTimePicker label="Return Date" value={returnDate} onChange={setReturnDate} />
-              </div>
-  
-              {duration && (
-                <div className="duration">
-                  Duration: {duration.days} Days and {duration.hours} hours
-                </div>
-              )}
-  
-              <div className="form-actions">
-                <button className="search-button" disabled={!location || !pickupDate || !returnDate || !duration}>
-                  Search
-                </button>
-              </div>
-            </div>
-  
-            {/* Hero Content */}
-            <div className="hero-content">
-              <h1>ORIX India's Premium Car Chauffeur Drive Services</h1>
-              <button className="enquire-button">Enquire Now</button>
-            </div>
-          </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        
-        <Features />
-        </main>
-        <Footer />
-      </div>
-    )
+  const scrollToVehicleTypes = () => {
+    vehicleTypesRef.current?.scrollIntoView({ behavior: "smooth" })
   }
-  
-  
+
+  return (
+
+    <div className="rental-container">
+          <Navbar />
+          <br />
+
+      {/* Hero Section */}
+      <section className="rental-hero">
+        <div className="rental-hero-image-wrapper">
+          <img
+            src={rental} //?height=500&width=1200
+            alt="Hero Image"
+            className="rental-hero-image"
+          />
+        </div>
+        <div className="rental-hero-text">
+          <h1 className="rental-hero-title">Explore Your Way</h1>
+          <p className="rental-hero-description">
+            Rent the perfect vehicle for your adventure. Choose from our wide range of bikes, scooties, and cars.
+          </p>
+          <button onClick={scrollToVehicleTypes} className="rental-hero-button">
+            Browse Vehicles
+          </button>
+        </div>
+      </section>
+
+      {/* Vehicle Types Section */}
+      <section ref={vehicleTypesRef} id="vehicle-types" className="rental-vehicle-types">
+        <h2 className="rental-section-title">Choose Your Ride</h2>
+        <div className="rental-grid">
+          <VehicleCard
+            title="Bike Rentals"
+            description="Explore the city on two wheels"
+            link="/rentals/bike"
+            image="/placeholder.svg?height=200&width=300"
+          />
+          <VehicleCard
+            title="Scooty Rentals"
+            description="Zip around town with ease"
+            link="/rentals/scooty"
+            image="/placeholder.svg?height=200&width=300"
+          />
+          <VehicleCard
+            title="Car Rentals"
+            description="Travel in comfort and style"
+            link="/rentals/car"
+            image="/placeholder.svg?height=200&width=300"
+          />
+        </div>
+      </section>
+
+      {/* Featured Vehicles Section */}
+      <section className="rental-featured-vehicles">
+        <h2 className="rental-section-title">Featured Vehicles</h2>
+        <div className="rental-grid featured-vehicles-grid">
+          <FeaturedVehicleCard
+            name="Mountain Explorer"
+            type="Bike"
+            hourlyRate={12}
+            dailyRate={50}
+            weeklyRate={250}
+            image="/placeholder.svg?height=150&width=200"
+          />
+          <FeaturedVehicleCard
+            name="Urban Zip"
+            type="Scooty"
+            hourlyRate={8}
+            dailyRate={35}
+            weeklyRate={175}
+            image="/placeholder.svg?height=150&width=200"
+          />
+          <FeaturedVehicleCard
+            name="Eco Compact"
+            type="Car"
+            hourlyRate={20}
+            dailyRate={80}
+            weeklyRate={400}
+            image="/placeholder.svg?height=150&width=200"
+          />
+          <FeaturedVehicleCard
+            name="Electric Glide"
+            type="Bike"
+            hourlyRate={15}
+            dailyRate={60}
+            weeklyRate={300}
+            image="/placeholder.svg?height=150&width=200"
+          />
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="rental-cta">
+        <h2 className="rental-cta-title">Ready to Start Your Journey?</h2>
+        <p className="rental-cta-description">Choose from our wide range of vehicles and hit the road today!</p>
+        <button onClick={scrollToVehicleTypes} className="rental-cta-button">
+          Rent Now
+        </button>
+      </section>
+    </div>
+  )
+}
+
+function VehicleCard({ title, description, link, image }) {
+  return (
+    <div className="rental-card">
+      <div className="rental-card-image-wrapper">
+        <img
+          src={image || "/placeholder.svg"}
+          alt={title}
+          className="rental-card-image"
+        />
+      </div>
+      <div className="rental-card-header">
+        <h3>{title}</h3>
+      </div>
+      <div className="rental-card-content">
+        <p>{description}</p>
+        <a href={link} className="rental-card-link">
+          View Details &gt;
+        </a>
+      </div>
+    </div>
+  )
+}
+
+function FeaturedVehicleCard({ name, type, hourlyRate, dailyRate, weeklyRate, image }) {
+  return (
+    <div className="rental-card featured-card">
+      <div className="rental-card-image-wrapper">
+        <img
+          src={image || "/placeholder.svg"}
+          alt={name}
+          className="rental-featured-image"
+        />
+      </div>
+      <div className="rental-card-content">
+        <h3>{name}</h3>
+        <span>{type}</span>
+        <p>From ${hourlyRate}/hour</p>
+      </div>
+    </div>
+  )
+}
+
+function TestimonialCard({ name, quote, rating }) {
+  return (
+    <div className="rental-card testimonial-card">
+      <div className="rental-testimonial-rating">
+        {[...Array(rating)].map((_, i) => (
+          <span key={i} className="rental-star">★</span>
+        ))}
+      </div>
+      <p className="rental-card-quote">"{quote}"</p>
+      <p className="rental-card-author">- {name}</p>
+    </div>
+  )
+}
