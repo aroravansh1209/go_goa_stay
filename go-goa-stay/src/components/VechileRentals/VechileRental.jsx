@@ -2,6 +2,10 @@ import { useRef } from "react"
 import "../../Styles/VechileRentals.css"
 import Navbar from "../Navbar";
 import rental from "../../assets/rental.jpeg";
+import vehical1 from "../../assets/Vechile1.jpeg"
+import vehical2 from "../../assets/Vechile2.jpeg"
+import vehical3 from "../../assets/Vechile3.jpeg"
+import vehical4 from "../../assets/Vechile4.jpeg"
 
 export default function VehicleRental() {
   const vehicleTypesRef = useRef(null)
@@ -44,19 +48,19 @@ export default function VehicleRental() {
             title="Bike Rentals"
             description="Explore the city on two wheels"
             link="/rentals/bike"
-            image="/placeholder.svg?height=200&width=300"
+            image={vehical1}
           />
           <VehicleCard
             title="Scooty Rentals"
             description="Zip around town with ease"
             link="/rentals/scooty"
-            image="/placeholder.svg?height=200&width=300"
+            image={vehical2}
           />
           <VehicleCard
             title="Car Rentals"
             description="Travel in comfort and style"
             link="/rentals/car"
-            image="/placeholder.svg?height=200&width=300"
+            image={vehical3}
           />
         </div>
       </section>
@@ -71,7 +75,7 @@ export default function VehicleRental() {
             hourlyRate={12}
             dailyRate={50}
             weeklyRate={250}
-            image="/placeholder.svg?height=150&width=200"
+            image={vehical1}
           />
           <FeaturedVehicleCard
             name="Urban Zip"
@@ -79,7 +83,7 @@ export default function VehicleRental() {
             hourlyRate={8}
             dailyRate={35}
             weeklyRate={175}
-            image="/placeholder.svg?height=150&width=200"
+            image={vehical2}
           />
           <FeaturedVehicleCard
             name="Eco Compact"
@@ -87,7 +91,7 @@ export default function VehicleRental() {
             hourlyRate={20}
             dailyRate={80}
             weeklyRate={400}
-            image="/placeholder.svg?height=150&width=200"
+            image={vehical3}
           />
           <FeaturedVehicleCard
             name="Electric Glide"
@@ -95,7 +99,7 @@ export default function VehicleRental() {
             hourlyRate={15}
             dailyRate={60}
             weeklyRate={300}
-            image="/placeholder.svg?height=150&width=200"
+            image={vehical4}
           />
         </div>
       </section>

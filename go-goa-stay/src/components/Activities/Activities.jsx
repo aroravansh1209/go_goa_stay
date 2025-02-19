@@ -2,6 +2,7 @@ import { Card, CardContent, CardActions, CardMedia, Typography } from "@mui/mate
 import Badge from "@mui/material/Badge";
 import Button from "@mui/material/Button";
 import { Star } from "lucide-react";
+import activity from "../../assets/Activity5.avif"
 
 import "../../Styles/Activities.css";
 
@@ -10,7 +11,7 @@ const activities = [
   {
     id: "scuba-1",
     title: "Grand Island Scuba Diving with Free Videography",
-    image: "/placeholder.svg",
+    image: activity,
     discount: 25,
     rating: 4.9,
     reviews: 554,
