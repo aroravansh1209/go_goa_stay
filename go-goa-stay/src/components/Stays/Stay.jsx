@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search, Star, MapPin, Filter } from 'lucide-react';
-import BookingModal from "./StayBookingModel"
+// import BookingModal from "./StayBookingModel"
 import HeroSection from './StayHeroSection';
 import FeaturedStays from './FeaturedStay';
 import BenefitsSection from './StaybenifitSection';
@@ -187,14 +187,14 @@ export default function Stays() {
 
       <Footer />
 
-      {selectedStay && (
+      {/* {selectedStay && (
         <BookingModal
           isOpen={isBookingModalOpen}
           onClose={() => setIsBookingModalOpen(false)}
           stay={selectedStay}
           onSubmit={handleBookingSubmit}
         />
-      )}
+      )} */}
     </div>
   );
 }
