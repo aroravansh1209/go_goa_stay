@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { addDays, format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import "../../Styles/StayDateRange.css"
+import { MUICalendar } from "./MUICalendar";
 
 export function DateRangePicker({ className }) {
   const [date, setDate] = useState({
@@ -32,14 +33,7 @@ export function DateRangePicker({ className }) {
           )}
         </button>
         <div className="StaydateRange__popoverContent">
-          <Calendar
-            initialFocus
-            mode="range"
-            defaultMonth={date?.from}
-            selected={date}
-            onSelect={setDate}
-            numberOfMonths={2}
-          />
+        <MUICalendar onChange={setDate} value={date} />
         </div>
       </div>
     </div>

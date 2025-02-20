@@ -110,7 +110,7 @@ export function Activities() {
           <CardActions>
             <Button
               component="a"
-              href={`/activities/${activity.id}`}
+              href={`/activity/${activity.id}`}
               fullWidth
               variant="contained"
               color="primary"

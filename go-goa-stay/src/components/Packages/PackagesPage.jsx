@@ -2,6 +2,7 @@ import React,{ useState, useEffect } from "react";
 import { goaPackages } from "../Packages/goaPackages"; // Adjust path if necessary
 import { Star, Check } from "lucide-react";
 import "../../Styles/PackagePage.css"
+import { useParams } from "react-router-dom";
 
 export async function generateStaticParams() {
   return goaPackages.map((pkg) => ({
@@ -9,8 +10,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function PackagePage({ params }) {
-  const pkg = goaPackages.find((p) => p.id === params.id);
+export default function PackagePage() {
+  const {packagesId} = useParams();
+  const pkg = goaPackages.find((p) => p.id === packagesId);
 
   if (!pkg) {
     // If package is not found, you can handle it using React router's `Redirect` or custom 404 logic

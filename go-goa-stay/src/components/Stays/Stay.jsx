@@ -132,7 +132,7 @@ export default function Stays() {
                   <DollarSign className="stay price-icon" />
                   <span>{acc.price}/night</span>
                 </div>
-                <Link to={`/stay/accommodations/${acc.id}`} className="stay details-button">View Details</Link>
+                <Link to={`/stays/${acc.id}`} className="stay details-button">View Details</Link>
               </div>
             </div>
           ))}
@@ -261,7 +261,7 @@ export default function Stays() {
                       </div>
                       <div className="stay accommodation-footer">
                         <span>{acc.type}</span>
-                        <Link to={`/stay/accommodations/${acc.id}`} className="stay details-button">View Details</Link>
+                        <Link to={`/stays/${acc.id}`} className="stay details-button">View Details</Link>
                       </div>
                     </div>
                   </div>

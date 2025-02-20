@@ -9,6 +9,7 @@ import {
   DollarSign,
   ArrowLeft,
 } from "lucide-react"
+import { useParams } from "react-router-dom"
 
 // Mock data for accommodations (in a real app, this would be fetched from an API)
 const accommodations = [
@@ -61,13 +62,16 @@ const accommodations = [
   },
 ]
 
-export default function AccommodationDetailPage({ params }) {
+export default function AccommodationDetailPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false)
   const [checkInDate, setCheckInDate] = useState()
   const [checkOutDate, setCheckOutDate] = useState()
   const [guests, setGuests] = useState(1)
+  const {staysId} = useParams();
 
-  const accommodation = accommodations.find((acc) => acc.id === Number.parseInt(params.id))
+  console.log(staysId)
+
+  const accommodation = accommodations.find((acc) => acc.id === Number.parseInt(staysId))
 
   if (!accommodation) {
     return <div>Accommodation not found</div>
