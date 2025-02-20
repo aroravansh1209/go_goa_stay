@@ -1,276 +1,200 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Search, MapPin, Wifi, PocketIcon as Pool, CookingPotIcon as Kitchen, Tv, Car, DollarSign } from "lucide-react";
-import "../../Styles/Stay.css"
-import { DateRangePicker } from "./StayDateRange";
-import { GuestSelector } from "./StayGuestSelector";
+import React, { useState } from 'react';
+import { Search, Star, MapPin, Filter } from 'lucide-react';
+import BookingModal from "./StayBookingModel"
+import HeroSection from './StayHeroSection';
+import FeaturedStays from './FeaturedStay';
+import BenefitsSection from './StaybenifitSection';
+import Testimonials from './StayTestimonials';
+import Newsletter from './StayNewsletter';
+import Footer from '../Footer';
 
-const accommodations = [
+const stayTypes = ['All', 'Hotels', 'Villas', 'Resorts', 'Flats', 'Hostels'];
+
+const stays = [
   {
     id: 1,
-    name: "Luxury Beachfront Villa",
-    type: "Villa",
-    price: 500,
-    location: "Calangute",
-    image: "/placeholder.svg?height=200&width=300",
-    amenities: ["Wi-Fi", "Pool", "Kitchen", "TV", "Parking"],
-    isLuxury: true,
+    name: 'Luxury Beach Resort',
+    type: 'Hotels',
+    rating: 5,
+    price: 15000,
+    location: 'Calangute Beach',
+    amenities: ['Pool', 'Spa', 'Restaurant', 'Beach Access'],
+    images: ['/placeholder.svg?height=300&width=400'],
   },
   {
     id: 2,
-    name: "Budget-Friendly Apartment",
-    type: "Flat",
-    price: 80,
-    location: "Panaji",
-    image: "/placeholder.svg?height=200&width=300",
-    amenities: ["Wi-Fi", "Kitchen"],
-    isLuxury: false,
+    name: 'Backpackers Hostel',
+    type: 'Hostels',
+    rating: 4,
+    price: 800,
+    location: 'Anjuna',
+    amenities: ['WiFi', 'Common Kitchen', 'Lounge'],
+    images: ['/placeholder.svg?height=300&width=400'],
   },
   {
     id: 3,
-    name: "Cozy Goan House",
-    type: "House",
-    price: 150,
-    location: "Anjuna",
-    image: "/placeholder.svg?height=200&width=300",
-    amenities: ["Wi-Fi", "Kitchen", "TV", "Parking"],
-    isLuxury: false,
+    name: 'Seaside Villa',
+    type: 'Villas',
+    rating: 4.5,
+    price: 25000,
+    location: 'Vagator',
+    amenities: ['Private Pool', 'Kitchen', 'Garden', 'Sea View'],
+    images: ['/placeholder.svg?height=300&width=400'],
   },
   {
     id: 4,
-    name: "Exclusive Resort Suite",
-    type: "Resort",
-    price: 350,
-    location: "Candolim",
-    image: "/placeholder.svg?height=200&width=300",
-    amenities: ["Wi-Fi", "Pool", "Kitchen", "TV", "Parking"],
-    isLuxury: true,
+    name: 'City Center Hotel',
+    type: 'Hotels',
+    rating: 3,
+    price: 5000,
+    location: 'Panjim',
+    amenities: ['Restaurant', 'WiFi', 'Room Service'],
+    images: ['/placeholder.svg?height=300&width=400'],
   },
 ];
 
 export default function Stays() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filters, setFilters] = useState({
-    villa: false,
-    resort: false,
-    flat: false,
-    house: false,
-    luxury: false,
-    budget: false,
-    wifi: false,
-    pool: false,
-    kitchen: false,
-    tv: false,
-    parking: false,
-  });
-  const [priceRange, setPriceRange] = useState([0, 1000]);
-  const [showMap, setShowMap] = useState(false);
+  const [selectedType, setSelectedType] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedStay, setSelectedStay] = useState(null);
+  const [bookingSuccess, setBookingSuccess] = useState(false);
 
-  const filteredAccommodations = accommodations.filter((acc) => {
-    const typeFilter =
-      filters.villa || filters.resort || filters.flat || filters.house;
-    return (
-      acc.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (!typeFilter ||
-        (filters.villa && acc.type === "Villa") ||
-        (filters.resort && acc.type === "Resort") ||
-        (filters.flat && acc.type === "Flat") ||
-        (filters.house && acc.type === "House")) &&
-      (!filters.luxury || acc.isLuxury) &&
-      (!filters.budget || acc.price <= 100) &&
-      (!filters.wifi || acc.amenities.includes("Wi-Fi")) &&
-      (!filters.pool || acc.amenities.includes("Pool")) &&
-      (!filters.kitchen || acc.amenities.includes("Kitchen")) &&
-      (!filters.tv || acc.amenities.includes("TV")) &&
-      (!filters.parking || acc.amenities.includes("Parking")) &&
-      acc.price >= priceRange[0] &&
-      acc.price <= priceRange[1]
-    );
+  const filteredStays = stays.filter((stay) => {
+    const matchesType = selectedType === 'All' || stay.type === selectedType;
+    const matchesSearch =
+      stay.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      stay.location.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesType && matchesSearch;
   });
 
-  const handleFilterChange = (filterName) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [filterName]: !prevFilters[filterName],
-    }));
+  const handleBookNow = (stay) => {
+    setSelectedStay(stay);
+    setIsBookingModalOpen(true);
+  };
+
+  const handleBookingSubmit = async (bookingData) => {
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // Show success message
+    setBookingSuccess(true);
+    setTimeout(() => setBookingSuccess(false), 5000);
   };
 
   return (
-    <div>
-      {/* Hero Section */}
-      <div className="stay hero-section">
-        <div className="stay hero-overlay">
-          <img src="/placeholder.svg?height=600&width=1200" alt="Goa beaches" className="stay hero-image" />
+    <div className="stay-container">
+      {bookingSuccess && (
+        <div className="stay-booking-success">
+          Booking successful! Check your email for confirmation.
         </div>
-        <div className="stay hero-content">
-          <h1 className="stay hero-title">Find Your Perfect Stay in Goa</h1>
-          <p className="stay hero-description">
-            Discover a wide range of accommodations, from luxury beachfront villas to cozy apartments in the heart of Goa.
-          </p>
-          <div className="stay search-section">
-            <DateRangePicker />
-            <GuestSelector />
-            <button className="stay search-button">Search</button>
-          </div>
-        </div>
-      </div>
+      )}
 
-      {/* Featured Accommodations */}
-      <div className="stay featured-accommodations">
-        <h2 className="stay section-title">Featured Accommodations</h2>
-        <div className="stay accommodations-grid">
-          {accommodations.slice(0, 3).map((acc) => (
-            <div key={acc.id} className="stay accommodation-card">
-              <img src={acc.image || "/placeholder.svg"} alt={acc.name} className="stay accommodation-image" />
-              <div className="stay accommodation-info">
-                <h3 className="stay accommodation-name">{acc.name}</h3>
-                <div className="stay accommodation-location">
-                  <MapPin className="stay location-icon" />
-                  <span>{acc.location}</span>
-                </div>
-                <div className="stay accommodation-price">
-                  <DollarSign className="stay price-icon" />
-                  <span>{acc.price}/night</span>
-                </div>
-                <Link to={`/stays/${acc.id}`} className="stay details-button">View Details</Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <HeroSection />
 
-      {/* Filters and Accommodations List */}
-      <div className="stay accommodations-list">
-        <h2 className="stay section-title">All Accommodations</h2>
-        <div className="stay filters-and-list">
-          {/* Filters Sidebar */}
-          <div className="stay filters-sidebar">
-            <div className="stay filter-section">
-              <h3>Accommodation Type</h3>
-              <div className="stay filter-options">
-                {["villa", "resort", "flat", "house"].map((type) => (
-                  <div key={type} className="stay filter-option">
-                    <input
-                      type="checkbox"
-                      id={type}
-                      checked={filters[type]}
-                      onChange={() => handleFilterChange(type)}
-                    />
-                    <label htmlFor={type}>{type}</label>
-                  </div>
-                ))}
-              </div>
-            </div>
+      <main>
+        <FeaturedStays />
 
-            <div className="stay filter-section">
-              <h3>Price Range</h3>
-              <input
-                type="range"
-                min="0"
-                max="1000"
-                value={priceRange[1]}
-                onChange={(e) => setPriceRange([priceRange[0], e.target.value])}
-                className="stay price-slider"
-              />
-              <div className="stay price-range">
-                <span>${priceRange[0]}</span>
-                <span>${priceRange[1]}</span>
-              </div>
-            </div>
-
-            <div className="stay filter-section">
-              <h3>Property Class</h3>
-              <div className="stay filter-options">
-                <div className="stay filter-option">
-                  <input
-                    type="checkbox"
-                    id="luxury"
-                    checked={filters.luxury}
-                    onChange={() => handleFilterChange("luxury")}
-                  />
-                  <label htmlFor="luxury">Luxury</label>
-                </div>
-                <div className="stay filter-option">
-                  <input
-                    type="checkbox"
-                    id="budget"
-                    checked={filters.budget}
-                    onChange={() => handleFilterChange("budget")}
-                  />
-                  <label htmlFor="budget">Budget</label>
-                </div>
-              </div>
-            </div>
-
-            <div className="stay filter-section">
-              <h3>Amenities</h3>
-              <div className="stay filter-options">
-                {["wifi", "pool", "kitchen", "tv", "parking"].map((amenity) => (
-                  <div key={amenity} className="stay filter-option">
-                    <input
-                      type="checkbox"
-                      id={amenity}
-                      checked={filters[amenity]}
-                      onChange={() => handleFilterChange(amenity)}
-                    />
-                    <label htmlFor={amenity}>{amenity}</label>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Main Content Area */}
-          <div className="stay accommodations-cards">
-            <div className="stay search-bar">
+        {/* Main Content */}
+        <div className="stay-main-content">
+          <div className="stay-search-filter-container">
+            <div className="stay-search-container">
               <input
                 type="text"
-                placeholder="Search accommodations..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="stay search-input"
+                placeholder="Search by name or location..."
+                className="stay-search-input"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <Search className="stay search-icon" />
+              <Search className="stay-search-icon" />
             </div>
+            <button className="stay-filter-button">
+              <Filter className="stay-filter-icon" />
+              <span>Filters</span>
+            </button>
+          </div>
 
-            {showMap ? (
-              <div className="stay map-view">
-                <p>Map view would be implemented here</p>
-              </div>
-            ) : (
-              <div className="stay accommodations-grid">
-                {filteredAccommodations.map((acc) => (
-                  <div key={acc.id} className="stay accommodation-card">
-                    <img src={acc.image || "/placeholder.svg"} alt={acc.name} className="stay accommodation-image" />
-                    <div className="stay accommodation-info">
-                      <h3 className="stay accommodation-name">{acc.name}</h3>
-                      <div className="stay accommodation-location">
-                        <MapPin className="stay location-icon" />
-                        <span>{acc.location}</span>
-                      </div>
-                      <div className="stay accommodation-price">
-                        <DollarSign className="stay price-icon" />
-                        <span>{acc.price}/night</span>
-                      </div>
-                      <div className="stay accommodation-amenities">
-                        {acc.amenities.includes("Wi-Fi") && <Wifi className="stay amenity-icon" />}
-                        {acc.amenities.includes("Pool") && <Pool className="stay amenity-icon" />}
-                        {acc.amenities.includes("Kitchen") && <Kitchen className="stay amenity-icon" />}
-                        {acc.amenities.includes("TV") && <Tv className="stay amenity-icon" />}
-                        {acc.amenities.includes("Parking") && <Car className="stay amenity-icon" />}
-                      </div>
-                      <div className="stay accommodation-footer">
-                        <span>{acc.type}</span>
-                        <Link to={`/stays/${acc.id}`} className="stay details-button">View Details</Link>
-                      </div>
+          {/* Stay Type Tabs */}
+          <div className="stay-type-tabs">
+            {stayTypes.map((type) => (
+              <button
+                key={type}
+                onClick={() => setSelectedType(type)}
+                className={`stay-type-tab ${selectedType === type ? 'active' : ''}`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+
+          {/* Stays Grid */}
+          <div className="stay-grid">
+            {filteredStays.map((stay) => (
+              <div key={stay.id} className="stay-card">
+                <div className="stay-card-image-container">
+                  <img
+                    src={stay.images[0] || '/placeholder.svg'}
+                    alt={stay.name}
+                    className="stay-card-image"
+                  />
+                  <div className="stay-card-rating">
+                    <div className="stay-card-rating-info">
+                      <Star className="stay-card-rating-icon" />
+                      <span className="stay-card-rating-text">{stay.rating}</span>
                     </div>
                   </div>
-                ))}
+                </div>
+                <div className="stay-card-info">
+                  <h3 className="stay-card-name">{stay.name}</h3>
+                  <div className="stay-card-location">
+                    <MapPin className="stay-card-location-icon" />
+                    <span className="stay-card-location-text">{stay.location}</span>
+                  </div>
+                  <div className="stay-card-amenities">
+                    {stay.amenities.slice(0, 3).map((amenity) => (
+                      <span key={amenity} className="stay-card-amenity">
+                        {amenity}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="stay-card-footer">
+                    <div>
+                      <span className="stay-card-price">₹{stay.price}</span>
+                      <span className="stay-card-per-night">/night</span>
+                    </div>
+                    <div className="stay-card-buttons">
+                      <button className="stay-card-view-details-button">
+                        View Details
+                      </button>
+                      <button
+                        onClick={() => handleBookNow(stay)}
+                        className="stay-card-book-now-button"
+                      >
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
+            ))}
           </div>
         </div>
-      </div>
+
+        <BenefitsSection />
+        <Testimonials />
+        <Newsletter />
+      </main>
+
+      <Footer />
+
+      {selectedStay && (
+        <BookingModal
+          isOpen={isBookingModalOpen}
+          onClose={() => setIsBookingModalOpen(false)}
+          stay={selectedStay}
+          onSubmit={handleBookingSubmit}
+        />
+      )}
     </div>
   );
 }

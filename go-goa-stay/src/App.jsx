@@ -8,7 +8,7 @@ import Activity from "./components/Activities/Activity";
 import ActivityPage from "./components/Activities/ActivityPage";
 import CruiseDetailsPage from "./components/Cruise/CruiseDetails";
 import PackagePage from "./components/Packages/PackagesPage";
-import AccommodationDetailPage from "./components/Stays/StaysDetails";
+import AccommodationDetailPage from "./components/Stays/Stay";
 
 export default function App() {
   return (

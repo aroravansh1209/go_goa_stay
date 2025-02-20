@@ -1,0 +1,130 @@
+.StayBookingModal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  .StayBookingModal-container {
+    background-color: white;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 24px;
+  }
+  
+  .StayBookingModal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .StayBookingModal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .StayBookingModal-closeButton {
+    color: #6b7280;
+    transition: color 0.2s;
+  }
+  
+  .StayBookingModal-closeButton:hover {
+    color: #4b5563;
+  }
+  
+  .StayBookingModal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .StayBookingModal-formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  
+  .StayBookingModal-formGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .StayBookingModal-label {
+    font-size: 0.875rem;
+    font-weight: medium;
+    color: #4b5563;
+    margin-bottom: 8px;
+  }
+  
+  .StayBookingModal-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+  }
+  
+  .StayBookingModal-error {
+    border-color: #ef4444;
+  }
+  
+  .StayBookingModal-errorMessage {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 4px;
+  }
+  
+  .StayBookingModal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+  
+  .StayBookingModal-cancelButton {
+    padding: 8px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .StayBookingModal-cancelButton:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .StayBookingModal-submitButton {
+    padding: 8px 16px;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .StayBookingModal-submitButton:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+  }
+  
+  .StayBookingModal-loadingIcon {
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
