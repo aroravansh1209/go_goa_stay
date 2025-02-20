@@ -1,4 +1,5 @@
 import { Search } from "lucide-react"
+import '../../Styles/StayHeroSection.css'
 
 export default function HeroSection() {
   return (

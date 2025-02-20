@@ -6,6 +6,7 @@ import vehical1 from "../../assets/Vechile1.jpeg"
 import vehical2 from "../../assets/Vechile2.jpeg"
 import vehical3 from "../../assets/Vechile3.jpeg"
 import vehical4 from "../../assets/Vechile4.jpeg"
+import Footer from "../Footer";
 
 export default function VehicleRental() {
   const vehicleTypesRef = useRef(null)
@@ -15,9 +16,10 @@ export default function VehicleRental() {
   }
 
   return (
+    <>
+              <Navbar />
 
     <div className="rental-container">
-          <Navbar />
           <br />
 
       {/* Hero Section */}
@@ -113,6 +115,8 @@ export default function VehicleRental() {
         </button>
       </section>
     </div>
+    <Footer />
+    </>
   )
 }
 

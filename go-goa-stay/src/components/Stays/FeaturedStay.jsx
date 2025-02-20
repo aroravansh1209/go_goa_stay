@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
+import "../../Styles/StayFeatured.css"
 
 const featuredStays = [
   {
@@ -8,7 +9,7 @@ const featuredStays = [
     location: "Vagator Beach",
     price: 35000,
     rating: 4.9,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/Stay1.webp",
     tag: "Best Seller",
   },
   {
@@ -17,7 +18,7 @@ const featuredStays = [
     location: "Fontainhas",
     price: 28000,
     rating: 4.8,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/Stay2.webp",
     tag: "Historic",
   },
   {
@@ -26,7 +27,7 @@ const featuredStays = [
     location: "Calangute",
     price: 22000,
     rating: 4.7,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/Stay3.webp",
     tag: "Popular",
   },
 ]

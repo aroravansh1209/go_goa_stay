@@ -1,12 +1,14 @@
 import React,{ useState } from "react";
 
 import "../../Styles/VechileCarRental.css"
+import Navbar from "../Navbar";
+import Footer from "../Footer";
 
 export default function CarRentalPage() {
   return (
+    <>
+    <Navbar />
     <div className="car-container">
-      <h1 className="car-title">Car Rentals</h1>
-
       <div className="car-grid">
         <div className="car-main-content">
           <h2 className="car-subtitle">Available Cars</h2>
@@ -14,22 +16,22 @@ export default function CarRentalPage() {
             <CarCard
               name="Eco Compact"
               description="Fuel-efficient compact car for city driving"
-              imageSrc="/placeholder.svg?height=200&width=300"
+              imageSrc="/Vechile1.jpeg"
             />
             <CarCard
               name="Family Cruiser"
               description="Spacious SUV for family trips and comfort"
-              imageSrc="/placeholder.svg?height=200&width=300"
+              imageSrc="/Vechile1.jpeg"
             />
             <CarCard
               name="Luxury Sedan"
               description="Premium sedan for a touch of elegance"
-              imageSrc="/placeholder.svg?height=200&width=300"
+              imageSrc="/Vechile1.jpeg"
             />
             <CarCard
               name="Electric Future"
               description="Zero-emission electric car for eco-conscious drivers"
-              imageSrc="/placeholder.svg?height=200&width=300"
+              imageSrc="/Vechile1.jpeg"
             />
           </div>
 
@@ -96,6 +98,8 @@ export default function CarRentalPage() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
 

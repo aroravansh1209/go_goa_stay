@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { ArrowLeft, Star, MapPin, Check } from "lucide-react"
 import BookingModal from "@/components/booking-modal"
+import "../../Styles/StayDetail.css"
 
 // This would typically come from an API
 const stays = [

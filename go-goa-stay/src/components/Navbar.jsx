@@ -42,7 +42,7 @@ export default function Navbar() {
             <a href="/cruise"> Cruise</a>
           </li>
         </ul>
-        <button>Connect</button>
+        <div></div>
       </Nav>
       <ResponsiveNav state={navbarState}>
         <ul>

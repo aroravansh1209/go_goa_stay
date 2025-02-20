@@ -1,4 +1,5 @@
 import { Shield, Clock, Heart, Map } from "lucide-react"
+import "../../Styles/StayBenifit.css"
 
 const benefits = [
   {

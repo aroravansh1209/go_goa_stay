@@ -1,4 +1,5 @@
 import { Star } from "lucide-react"
+import "../../Styles/StayTestimonials.css"
 
 const testimonials = [
   {

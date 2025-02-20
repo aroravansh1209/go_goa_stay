@@ -12,6 +12,8 @@ import {
 import { Clock, MapPin, Utensils, Users, Waves, Wifi } from "lucide-react";
 import { cruises } from "../Cruise/CruiseData"; // Assuming your data file
 import "../../Styles/CruiseDeatils.css"; // Import custom CSS file
+import Footer from "../Footer";
+import Navbar from "../Navbar";
 
 export default function CruiseDetailsPage() {
   const { cruiseId } = useParams(); // React Router hook for params
@@ -22,6 +24,8 @@ export default function CruiseDetailsPage() {
   }
 
   return (
+    <>
+    <Navbar />
     <Box className="cruiseDetails-container">
       <Box className="cruiseDetails-grid">
         <Box className="cruiseDetails-image-container">
@@ -164,5 +168,7 @@ export default function CruiseDetailsPage() {
         </Typography>
       </Box>
     </Box>
+    <Footer />
+    </>
   );
 }

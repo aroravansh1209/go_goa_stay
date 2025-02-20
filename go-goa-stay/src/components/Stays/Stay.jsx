@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { Search, Star, MapPin, Filter } from 'lucide-react';
-// import BookingModal from "./StayBookingModel"
+import React, { useEffect, useState } from 'react';
+import { Search, Star, MapPin, Filter, ImageOff } from 'lucide-react';
+import BookingModal from "./StayBookingModel"
 import HeroSection from './StayHeroSection';
 import FeaturedStays from './FeaturedStay';
 import BenefitsSection from './StaybenifitSection';
 import Testimonials from './StayTestimonials';
 import Newsletter from './StayNewsletter';
 import Footer from '../Footer';
+import "../../Styles/Stay.css"
+import Navbar from '../Navbar';
+
 
 const stayTypes = ['All', 'Hotels', 'Villas', 'Resorts', 'Flats', 'Hostels'];
 
@@ -19,7 +22,7 @@ const stays = [
     price: 15000,
     location: 'Calangute Beach',
     amenities: ['Pool', 'Spa', 'Restaurant', 'Beach Access'],
-    images: ['/placeholder.svg?height=300&width=400'],
+    images: ['/Stay1.webp'],
   },
   {
     id: 2,
@@ -29,7 +32,7 @@ const stays = [
     price: 800,
     location: 'Anjuna',
     amenities: ['WiFi', 'Common Kitchen', 'Lounge'],
-    images: ['/placeholder.svg?height=300&width=400'],
+    images: ['/Stay2.webp'],
   },
   {
     id: 3,
@@ -39,7 +42,7 @@ const stays = [
     price: 25000,
     location: 'Vagator',
     amenities: ['Private Pool', 'Kitchen', 'Garden', 'Sea View'],
-    images: ['/placeholder.svg?height=300&width=400'],
+    images: ['/Stay3.webp'],
   },
   {
     id: 4,
@@ -49,7 +52,7 @@ const stays = [
     price: 5000,
     location: 'Panjim',
     amenities: ['Restaurant', 'WiFi', 'Room Service'],
-    images: ['/placeholder.svg?height=300&width=400'],
+    images: ['/Stay4.webp'],
   },
 ];
 
@@ -57,8 +60,13 @@ export default function Stays() {
   const [selectedType, setSelectedType] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [selectedStay, setSelectedStay] = useState(null);
+  const [selectedStay, setSelectedStay] = useState(stays[0]);
   const [bookingSuccess, setBookingSuccess] = useState(false);
+
+  useEffect(() => {
+    console.log("Selected Stay Updated:", selectedStay);
+  }, [selectedStay]); // This will run whenever `selectedStay` changes
+
 
   const filteredStays = stays.filter((stay) => {
     const matchesType = selectedType === 'All' || stay.type === selectedType;
@@ -69,7 +77,9 @@ export default function Stays() {
   });
 
   const handleBookNow = (stay) => {
-    setSelectedStay(stay);
+    const res = stay;
+    setSelectedStay(res);
+    console.log(selectedStay)
     setIsBookingModalOpen(true);
   };
 
@@ -84,6 +94,7 @@ export default function Stays() {
 
   return (
     <div className="stay-container">
+      <Navbar />
       {bookingSuccess && (
         <div className="stay-booking-success">
           Booking successful! Check your email for confirmation.
@@ -187,14 +198,14 @@ export default function Stays() {
 
       <Footer />
 
-      {/* {selectedStay && (
+      {selectedStay && (
         <BookingModal
           isOpen={isBookingModalOpen}
           onClose={() => setIsBookingModalOpen(false)}
           stay={selectedStay}
           onSubmit={handleBookingSubmit}
         />
-      )} */}
+      )}
     </div>
   );
 }

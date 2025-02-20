@@ -9,7 +9,7 @@
   .StayHero .background {
     position: absolute;
     inset: 0;
-    background-image: url('/placeholder.svg?height=800&width=1600');
+    background-image: url('/Stay1.webp');
     background-size: cover;
     background-position: center;
   }

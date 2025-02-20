@@ -1,3 +1,5 @@
+import '../../Styles/StayNewsletter.css'
+
 export default function Newsletter() {
     return (
       <div className="StawNewsletter">
