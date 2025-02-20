@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";  // Importing Routes and Route from react-router-dom
 import Home from "./components/Home";  // Ensure correct default imports
-import Stays from "./components/Stays/Stays";
+import Stays from "./components/Stays/Stay";
 import VechileRental from "./components/VechileRentals/VechileREntal";
 import Packages from "./components/Packages/Packages";
 import Cruise from "./components/Cruise/Cruise";

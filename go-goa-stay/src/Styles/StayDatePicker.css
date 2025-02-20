@@ -1,0 +1,63 @@
+/* General Styles */
+.StayDatePicker {
+    position: relative;
+  }
+  
+  .StayDatePicker__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px 16px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .StayDatePicker__trigger--empty {
+    color: #9e9e9e; /* muted text */
+  }
+  
+  .StayDatePicker__icon {
+    margin-right: 8px;
+    height: 16px;
+    width: 16px;
+  }
+  
+  .StayDatePicker__popoverContent {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  .StayDatePicker__popoverContent .react-calendar {
+    width: 100%;
+  }
+  
+  .StayDatePicker__popoverContent .react-calendar__tile {
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .StayDatePicker__popoverContent .react-calendar__tile--active {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .StayDatePicker__popoverContent .react-calendar__tile--disabled {
+    background-color: #f0f0f0;
+    color: #ccc;
+  }
+  
+  .StayDatePicker__popoverContent .react-calendar__month-view__days__day {
+    color: #333;
+  }
+  
