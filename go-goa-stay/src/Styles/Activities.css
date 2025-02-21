@@ -149,3 +149,75 @@
 .activity-button a:hover {
   background-color: #d46e3b;
 }
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  /* Grid adjustments */
+  .activities-grid {
+    grid-template-columns: 1fr 1fr; /* Two columns on smaller screens */
+    gap: 1rem; /* Reduced gap */
+  }
+
+  /* Adjust the title font size for mobile */
+  .activity-title {
+    font-size: 1rem; /* Smaller font size */
+  }
+
+  /* Adjust meta info font size */
+  .activity-duration, .activity-persons, .activity-avg-text, .activity-reviews {
+    font-size: 0.75rem; /* Smaller font size for mobile */
+  }
+
+  /* Make sure the activity card content stacks vertically on mobile */
+  .activity-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Adjust price text for mobile */
+  .activity-price-amount {
+    font-size: 1.25rem; /* Slightly smaller font */
+  }
+
+  .activity-original-price {
+    font-size: 0.875rem;
+  }
+
+  .activity-per-person {
+    font-size: 0.75rem;
+  }
+
+  /* Adjust button padding for mobile */
+  .activity-button a {
+    padding: 0.5rem; /* Reduced padding for smaller screens */
+    font-size: 0.9rem; /* Smaller button font size */
+  }
+}
+
+/* Extra Small Screen (phones) */
+@media screen and (max-width: 480px) {
+  .activities-grid {
+    grid-template-columns: 1fr; /* One column on very small screens */
+    gap: 0.75rem;
+  }
+
+  /* Make title even smaller */
+  .activity-title {
+    font-size: 0.9rem;
+  }
+
+  /* Further adjust content layout and spacing */
+  .activity-content {
+    gap: 1rem; /* Increase gap for readability */
+  }
+
+  .activity-price-amount {
+    font-size: 1rem; /* Even smaller font */
+  }
+
+  /* Further reduce button padding */
+  .activity-button a {
+    padding: 0.4rem; /* Reduced padding */
+    font-size: 0.85rem;
+  }
+}
