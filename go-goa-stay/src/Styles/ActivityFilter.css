@@ -1,7 +1,5 @@
 /* General Styles for the Activity Filter Card */
 .activityfilter-card {
-  position: -webkit-sticky; /* Ensure compatibility for Safari */
-  position: sticky;
   top: 4rem; /* Distance from the top when it starts sticking */
   width: 100%;
   max-width: 400px;

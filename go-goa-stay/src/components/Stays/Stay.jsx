@@ -106,7 +106,7 @@ export default function Stays() {
       <HeroSection />
 
       <main>
-        <FeaturedStays />
+        {/* <FeaturedStays /> */}
 
         {/* Main Content */}
         <div className="stay-main-content">
