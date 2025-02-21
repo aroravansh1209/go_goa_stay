@@ -3,6 +3,8 @@ import { goaPackages } from "../Packages/goaPackages"; // Adjust path if necessa
 import { Star, Check } from "lucide-react";
 import "../../Styles/PackagePage.css"
 import { useParams } from "react-router-dom";
+import Footer from "../Footer";
+import Navbar from "../Navbar";
 
 export async function generateStaticParams() {
   return goaPackages.map((pkg) => ({
@@ -20,6 +22,8 @@ export default function PackagePage() {
   }
 
   return (
+    <>
+    <Navbar />
     <main className="PackagePage">
       <div className="PackagePage__grid">
         <div>
@@ -122,5 +126,7 @@ export default function PackagePage() {
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }

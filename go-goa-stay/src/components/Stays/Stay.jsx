@@ -9,6 +9,7 @@ import Newsletter from './StayNewsletter';
 import Footer from '../Footer';
 import "../../Styles/Stay.css"
 import Navbar from '../Navbar';
+import { useNavigate } from 'react-router-dom';
 
 
 const stayTypes = ['All', 'Hotels', 'Villas', 'Resorts', 'Flats', 'Hostels'];
@@ -62,6 +63,7 @@ export default function Stays() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [selectedStay, setSelectedStay] = useState(stays[0]);
   const [bookingSuccess, setBookingSuccess] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("Selected Stay Updated:", selectedStay);
@@ -174,8 +176,8 @@ export default function Stays() {
                       <span className="stay-card-per-night">/night</span>
                     </div>
                     <div className="stay-card-buttons">
-                      <button className="stay-card-view-details-button">
-                        View Details
+                    <button onClick={() => navigate(`/stays/${stay.id}`)} className="stay-card-view-details-button">
+                    View Details
                       </button>
                       <button
                         onClick={() => handleBookNow(stay)}
