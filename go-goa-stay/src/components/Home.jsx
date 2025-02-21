@@ -8,6 +8,7 @@ import Testimonials from "./Testimonials";
 import Footer from "./Footer";
 import scrollreveal from "scrollreveal";
 import { useEffect } from "react";
+
 export default function Home() {
   useEffect(() => {
     const sr = scrollreveal({
@@ -31,6 +32,7 @@ export default function Home() {
       }
     );
   }, []);
+
   return (
     <Main>
       <ScrollToTop />
@@ -43,4 +45,12 @@ export default function Home() {
     </Main>
   );
 }
-const Main = styled.main``;
+
+const Main = styled.main`
+  padding: 0 20px;
+  
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
+`;
+

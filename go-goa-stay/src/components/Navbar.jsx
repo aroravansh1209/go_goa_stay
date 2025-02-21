@@ -47,23 +47,33 @@ export default function Navbar() {
       <ResponsiveNav state={navbarState}>
         <ul>
           <li>
-            <a href="#home" onClick={() => setNavbarState(false)}>
+            <a href="/" onClick={() => setNavbarState(false)}>
               Home
             </a>
           </li>
           <li>
-            <a href="#services" onClick={() => setNavbarState(false)}>
-              About
+            <a href="/stays" onClick={() => setNavbarState(false)}>
+            Stays
             </a>
           </li>
           <li>
-            <a href="#recommend" onClick={() => setNavbarState(false)}>
-              Places
+            <a href="/rentals" onClick={() => setNavbarState(false)}>
+            Vehicle Rentals
             </a>
           </li>
           <li>
-            <a href="#testimonials" onClick={() => setNavbarState(false)}>
-              Testimonials
+            <a href="/packages" onClick={() => setNavbarState(false)}>
+            Packages
+            </a>
+          </li>
+          <li>
+            <a href="/activity" onClick={() => setNavbarState(false)}>
+            Activities
+            </a>
+          </li>
+          <li>
+            <a href="/cruise" onClick={() => setNavbarState(false)}>
+            Cruise
             </a>
           </li>
         </ul>
