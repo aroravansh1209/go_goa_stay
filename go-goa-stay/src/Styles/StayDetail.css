@@ -262,3 +262,93 @@
     color: #6b7280;
   }
   
+  /* Mobile Responsiveness */
+  @media screen and (max-width: 768px) {
+    /* Adjust grid layout for smaller screens */
+    .StayDetails-main {
+      padding: 0 1rem;
+    }
+  
+    /* Adjust image gallery for smaller screens */
+    .StayDetails-image-gallery {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .StayDetails-thumbnail-gallery {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .StayDetails-main-image {
+      height: 300px;
+    }
+  
+    /* Adjust amenities grid layout */
+    .StayDetails-amenities {
+      grid-template-columns: 1fr;
+    }
+  
+    /* Adjust room grid layout */
+    .StayDetails-rooms {
+      grid-template-columns: 1fr;
+    }
+  
+    /* Adjust booking form */
+    .StayDetails-booking-form {
+      gap: 0.5rem;
+    }
+  
+    /* Make the booking button full width */
+    .StayDetails-book-button {
+      width: 100%;
+    }
+  
+    /* Adjust form input size */
+    .StayDetails-form-input {
+      padding: 0.5rem;
+    }
+  
+    /* Adjust title font size */
+    .StayDetails-title {
+      font-size: 1.5rem;
+    }
+  
+    /* Adjust subtitle font size */
+    .StayDetails-subtitle {
+      font-size: 1.125rem;
+    }
+  
+    /* Adjust the font sizes of the description and other text */
+    .StayDetails-description {
+      font-size: 0.875rem;
+    }
+  
+    .StayDetails-info-text {
+      font-size: 0.75rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .StayDetails-title {
+      font-size: 1.25rem;
+    }
+  
+    .StayDetails-name {
+      font-size: 1.5rem;
+    }
+  
+    .StayDetails-booking-title {
+      font-size: 1.125rem;
+    }
+  
+    .StayDetails-form-input {
+      padding: 0.5rem;
+    }
+  
+    .StayDetails-book-button {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+  
