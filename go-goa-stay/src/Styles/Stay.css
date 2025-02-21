@@ -235,3 +235,80 @@
     background-color: #2563eb;
   }
   
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .stay-main-content {
+      padding: 2rem 1rem;
+    }
+  
+    .stay-search-filter-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .stay-grid {
+      grid-template-columns: 1fr; /* Single column for small screens */
+      gap: 1rem;
+    }
+  
+    .stay-card {
+      width: 100%;
+    }
+  
+    .stay-card-info {
+      padding: 1rem;
+    }
+  
+    .stay-card-name {
+      font-size: 1rem;
+    }
+  
+    .stay-card-location-text {
+      font-size: 0.75rem;
+    }
+  
+    .stay-card-amenities {
+      gap: 0.25rem;
+    }
+  
+    .stay-card-price {
+      font-size: 1rem;
+    }
+  
+    .stay-card-per-night {
+      font-size: 0.75rem;
+    }
+  
+    .stay-card-buttons {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .stay-card-view-details-button,
+    .stay-card-book-now-button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stay-card-name {
+      font-size: 0.875rem;
+    }
+  
+    .stay-card-info {
+      padding: 0.75rem;
+    }
+  
+    .stay-card-location-text {
+      font-size: 0.7rem;
+    }
+  
+    .stay-card-price {
+      font-size: 1rem;
+    }
+  
+    .stay-card-buttons {
+      gap: 0.5rem;
+    }
+  }
+  
