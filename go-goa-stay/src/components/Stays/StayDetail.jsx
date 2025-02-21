@@ -1,8 +1,10 @@
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { ArrowLeft, Star, MapPin, Check } from "lucide-react"
-import BookingModal from "@/components/booking-modal"
 import "../../Styles/StayDetail.css"
+import { useNavigate, useParams } from "react-router-dom"
+import BookingModal from "./StayBookingModel"
+import Footer from "../Footer"
+import Navbar from "../Navbar"
 
 // This would typically come from an API
 const stays = [
@@ -28,10 +30,10 @@ const stays = [
       "24/7 Front Desk",
     ],
     images: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/Stay1.webp",
+      "/Stay2.webp",
+      "/Stay3.webp",
+      "/Stay4.webp",
     ],
     rooms: [
       { type: "Deluxe Room", price: 15000, capacity: "2 Adults" },
@@ -48,8 +50,7 @@ const stays = [
   // ... other stays data
 ]
 
-export default function StayDetailPage({ params }) {
-  const router = useRouter()
+export default function StayDetailPage() {
   const [selectedImage, setSelectedImage] = useState(0)
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
   const [bookingDates, setBookingDates] = useState({
@@ -58,15 +59,19 @@ export default function StayDetailPage({ params }) {
   })
   const [guestCount, setGuestCount] = useState(1)
   const [bookingSuccess, setBookingSuccess] = useState(false)
+  const navigate = useNavigate();
+  const {staysId} = useParams();
 
-  const stay = stays.find((s) => s.id === Number.parseInt(params.id))
+  console.log(staysId)
+
+  const stay = stays.find((s) => s.id === 1)
 
   if (!stay) {
     return (
       <div className="StayDetails-not-found">
         <div className="StayDetails-center">
           <h1 className="StayDetails-title">Stay not found</h1>
-          <button onClick={() => router.back()} className="StayDetails-go-back-button">
+          <button onClick={() => navigate(-1)} className="StayDetails-go-back-button">
             <ArrowLeft className="StayDetails-icon" />
             Go back
           </button>
@@ -88,20 +93,14 @@ export default function StayDetailPage({ params }) {
   }
 
   return (
+    <>
+    <Navbar />
     <div className="StayDetails-container">
       {bookingSuccess && (
         <div className="StayDetails-success-message">
           Booking successful! Check your email for confirmation.
         </div>
       )}
-
-      {/* Back Button */}
-      <div className="StayDetails-back-button-container">
-        <button onClick={() => router.back()} className="StayDetails-back-button">
-          <ArrowLeft className="StayDetails-icon" />
-          Back to Stays
-        </button>
-      </div>
 
       <main className="StayDetails-main">
         {/* Image Gallery */}
@@ -250,5 +249,7 @@ export default function StayDetailPage({ params }) {
         onSubmit={handleBookingSubmit}
       />
     </div>
+    <Footer />
+    </>
   )
 }
