@@ -4,12 +4,6 @@
   padding: 40px 20px;
 }
 
-.activityPage-grid {
-  display: grid;
-  gap: 32px;
-  grid-template-columns: 2fr 1fr;
-}
-
 .activityPage-main-content {
   display: flex;
   flex-direction: column;

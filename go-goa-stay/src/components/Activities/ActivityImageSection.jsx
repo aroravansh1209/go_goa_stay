@@ -2,6 +2,7 @@ import { useState } from "react";
 import '../../Styles/ActivityImageSection.css'
 
 export function ActivityImageSection({ images, title }) {
+  console.log(images)
   const [mainImage, setMainImage] = useState(images[0]);
 
   return (
@@ -23,7 +24,7 @@ export function ActivityImageSection({ images, title }) {
             onClick={() => setMainImage(image)}
           >
             <img
-              src={image || "/placeholder.svg"}
+              src={image}
               alt={`${title} - Image ${index + 1}`}
               className="activityImageSection-thumbnailImage"
             />

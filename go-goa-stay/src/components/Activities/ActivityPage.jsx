@@ -5,6 +5,8 @@ import '../../Styles/ActivityPage.css'; // Updated path for regular CSS
 import { ActivityImageSection } from './ActivityImageSection';
 import { ActivityReview } from './ActivityReview';
 import { ActivityRelatedActivities } from './ActivityRelatedActivities';
+import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 export default function ActivityPage({ params }) {
   const activity = {
@@ -12,8 +14,8 @@ export default function ActivityPage({ params }) {
     title: 'Grand Island Scuba Diving with Free Videography',
     description:
       'Experience the underwater world with our professional scuba diving package. Perfect for beginners and experienced divers alike.',
-    image: '/placeholder.svg',
-    images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg'],
+    image: '/Stay1.webp',
+    images: ['/Stay1.webp', '/Stay2.webp', '/Stay3.webp'],
     discount: 25,
     rating: 4.9,
     reviews: 554,
@@ -69,27 +71,29 @@ export default function ActivityPage({ params }) {
     {
       id: 'parasailing-1',
       title: 'Parasailing Adventure',
-      image: '/placeholder.svg',
+      image: '/Activity5.avif',
       duration: 2,
       price: 1200,
     },
     {
       id: 'jetski-1',
       title: 'Jet Ski Tour',
-      image: '/placeholder.svg',
+      image: '/Activity5.avif',
       duration: 1,
       price: 800,
     },
     {
       id: 'snorkeling-1',
       title: 'Snorkeling Trip',
-      image: '/placeholder.svg',
+      image: '/Activity5.avif',
       duration: 4,
       price: 1000,
     },
   ];
 
   return (
+    <>
+    <Navbar/>
     <div className="activityPage-container">
       <div className="activityPage-grid">
         <div className="activityPage-main-content">
@@ -114,6 +118,28 @@ export default function ActivityPage({ params }) {
           </div>
 
           <ActivityImageSection images={activity.images} title={activity.title} />
+
+          <div className="activityPage-sidebar">
+          <div className="activityPage-card">
+            <div className="activityPage-card-content">
+              <div className="activityPage-price">
+                <div className="activityPage-price-info">
+                  <div className="activityPage-price-value">
+                    ₹{activity.price}
+                  </div>
+                  <div className="activityPage-badge">{activity.discount}% OFF</div>
+                </div>
+                <div className="activityPage-price-original">
+                  <span className="activityPage-price-strike">₹{activity.originalPrice}</span>
+                  <span>per person</span>
+                </div>
+              </div>
+              <Link to={`/booking/${activity.id}`} className="activityPage-booking-link">
+                <button className="activityPage-booking-button">Book Now</button>
+              </Link>
+            </div>
+          </div>
+        </div>
 
           <div className="activityPage-tabs">
             <div className="activityPage-tabs-list">
@@ -158,29 +184,9 @@ export default function ActivityPage({ params }) {
 
           <ActivityRelatedActivities activities={relatedActivities} />
         </div>
-
-        <div className="activityPage-sidebar">
-          <div className="activityPage-card">
-            <div className="activityPage-card-content">
-              <div className="activityPage-price">
-                <div className="activityPage-price-info">
-                  <div className="activityPage-price-value">
-                    ₹{activity.price}
-                  </div>
-                  <div className="activityPage-badge">{activity.discount}% OFF</div>
-                </div>
-                <div className="activityPage-price-original">
-                  <span className="activityPage-price-strike">₹{activity.originalPrice}</span>
-                  <span>per person</span>
-                </div>
-              </div>
-              <Link to={`/booking/${activity.id}`} className="activityPage-booking-link">
-                <button className="activityPage-booking-button">Book Now</button>
-              </Link>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
