@@ -23,7 +23,7 @@ export default function Navbar() {
           </div>
         </div>
         <ul>
-          <li>
+          {/* <li>
             <a href="/">Home</a>
           </li>
           <li>
@@ -40,13 +40,13 @@ export default function Navbar() {
           </li>
           <li>
             <a href="/cruise"> Cruise</a>
-          </li>
+          </li> */}
         </ul>
         <div></div>
       </Nav>
       <ResponsiveNav state={navbarState}>
         <ul>
-          <li>
+          {/* <li>
             <a href="/" onClick={() => setNavbarState(false)}>
               Home
             </a>
@@ -75,7 +75,7 @@ export default function Navbar() {
             <a href="/cruise" onClick={() => setNavbarState(false)}>
             Cruise
             </a>
-          </li>
+          </li> */}
         </ul>
       </ResponsiveNav>
     </>

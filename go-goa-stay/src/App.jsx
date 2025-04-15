@@ -10,11 +10,13 @@ import PackagePage from "./components/Packages/PackagesPage";
 import VehicleRental from "./components/VechileRentals/VechileRental";
 import CarRentalPage from "./components/VechileRentals/Car";
 import StayDetailPage from "./components/Stays/StayDetail";
+import ComingSoon from "./components/ComingSoon";
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<ComingSoon />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/stays" element={<Stays />} />
       <Route path="/stays/:staysId" element={<StayDetailPage />} />
       <Route path="/rentals" element={<VehicleRental />} />
